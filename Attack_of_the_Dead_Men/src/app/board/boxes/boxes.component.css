@@ -1,0 +1,15 @@
+.row{
+    height: 33%;
+    width: 100%;
+    margin-left: 0;
+    position: relative;
+    top:-275px
+}
+
+.row > *{
+    padding: 0;
+}
+
+.imgSuper{
+    position: absolute;
+}

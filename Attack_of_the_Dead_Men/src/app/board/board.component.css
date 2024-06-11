@@ -1,0 +1,25 @@
+.inicio{
+    margin: 12% auto;
+    width: fit-content;
+}
+.col-6{
+    padding: 0 !important;
+}
+  
+.board-image{
+    position: relative;
+    z-index: -1;
+}
+.row.position-relative {
+    position: relative;
+}
+
+.turn{
+    left: 0px;
+    top: 100px
+}
+
+.controls{
+    right: 0px;
+    top: 700px
+}

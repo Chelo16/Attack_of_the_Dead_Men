@@ -1,0 +1,15 @@
+<div class="inicio">
+    <div class="character-selection">
+        @for(character of characters; track $index){
+        <div class="character-button">
+          <button (click)="toggleCharacter(character)"
+                  [class.selected]="isSelected(character)">
+            <img [src]="'./../../assets/images/characters/' + character + '.png'"
+                 [alt]="character" 
+                 class="character-image">
+          </button>
+        </div>
+        }
+        <button (click)="submitSelection()" class="submit-button">Submit Selection</button>
+      </div>
+</div>

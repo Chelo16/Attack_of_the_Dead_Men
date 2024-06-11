@@ -1,0 +1,43 @@
+<div class="inicio">
+    <section id="recomendaciones" class="d-flex flex-column col-12 justify-content-center">
+        <div class="titulo text-center">
+            <h1>Select the Adventure</h1>
+        </div>
+        <div class="p-4 d-flex justify-content-center w-100 mx-auto">
+            <div class="carousel slide w-100" id="carouselExample">
+                <div class="carousel-indicators">
+                    @for(adventure of adventures; track $index){
+                    <button type="button" data-bs-target="#carouselExample" [attr.data-bs-slide-to]="$index"
+                    [class.active]="$index === 0"></button>
+                    }
+                </div>
+                
+                <div class="carousel-inner">
+                    @for(adventure of adventures; track $index){
+                    <div class="carousel-item active">
+                        <a (click)="adventureSelected($index)">
+                        <img [src]="'./../../assets/images/Adventures/Adventure' + $index + '.png'" class="d-block" alt="Adventure {{$index}}"
+                            style="width: 1300px;">
+
+                        <div class="carousel-caption">
+                            <h1 class="bg">Adventure {{$index}}</h1>
+                        </div>
+                        </a>
+                    </div>
+                    }
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previus</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
