@@ -23,6 +23,11 @@ import { Zombie } from "../models/zombie.model";
   
     placeZombies(zombie: Zombie, row: number, col: number): void {
       this.zombiePositions.set(zombie, { row, col });
+      let currentRow = Math.floor(row/3);
+      let currentCol = Math.floor(col/3);
+      let currentRow2 = row%3+1;
+      let currentCol2 = col%3+1;
+      this.board[currentRow][currentCol][`row${currentRow2}`][`col${currentCol2}`].push(zombie);
       this.updateBoard();
     }
 
@@ -67,5 +72,6 @@ import { Zombie } from "../models/zombie.model";
   
     private updateBoard(): void {
       this.boardSubject.next(this.board);
+      console.log(this.board)
     }
   }

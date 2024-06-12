@@ -1,6 +1,15 @@
 <div class="row inicio">
     <div class="position-absolute turn">
         <h3>Actual Turn: {{actualTurn.name}}</h3>
+        <h4>Actions left: {{actions}}</h4>
+    </div>
+    <div class="position-absolute backpack">
+        <div class="row">
+            @for (item of actualTurn.backpack; track $index) {
+                <div class="col-4"><img [src]="'./../../assets/images/equipment/' + item.name + '.png'" [alt]="item.name" width="200px"
+                    height="300px"></div>
+            }
+        </div>
     </div>
     <div class="col-12">
         <!--Este es el tablero formado por dos filas y 2 columnas para un total de 4 trozos de tablero-->
@@ -28,7 +37,7 @@
             <div>
                 <button class="btn btn-danger" (click)="attackPlayer(actualTurn)">Atacar</button>
                 <button class="btn btn-warning" (click)="attackDoor(actualTurn)">Abrir Puerta</button>
-                <button class="btn btn-success">Buscar Suministros</button>
+                <button class="btn btn-success" (click)="searchEquipment(actualTurn)">Buscar Suministros</button>
             </div>
         </div>
     </div>

@@ -23,7 +23,7 @@ export class Character {
         this.rigthHand = initialWeapon;
         this.backpack = [];
         this.leftHand = {} as Equipment;
-        this.body = null;
+        this.body = {} as Equipment;
     }
 
     // rotar90(array: any[][]): any[][] {

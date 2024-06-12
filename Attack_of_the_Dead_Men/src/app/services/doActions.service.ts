@@ -5,7 +5,6 @@ import { Character } from "../models/character.model";
     providedIn: 'root'
 })
 export class DoActions {
-    finished: Promise<boolean>
     actionsRealized: number = 0;
 
     actions(player: Character) {

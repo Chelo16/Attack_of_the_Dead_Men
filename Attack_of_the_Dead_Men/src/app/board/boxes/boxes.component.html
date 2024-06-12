@@ -3,7 +3,7 @@
         @for(objective of objectives.row1.col1; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective) || isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -18,7 +18,7 @@
         @for(objective of objectives.row1.col2; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective) || isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -33,7 +33,7 @@
         @for(objective of objectives.row1.col3; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective)|| isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -50,7 +50,7 @@
         @for(objective of objectives.row2.col1; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective)|| isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -65,7 +65,7 @@
         @for(objective of objectives.row2.col2; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective)|| isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -80,7 +80,7 @@
         @for(objective of objectives.row2.col3; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective)|| isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -97,7 +97,7 @@
         @for(objective of objectives.row3.col1; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective)|| isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -112,7 +112,7 @@
         @for(objective of objectives.row3.col2; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective)|| isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">
@@ -127,7 +127,7 @@
         @for(objective of objectives.row3.col3; track objective){
         <div>
             @if(isNotString(objective)){
-                @if(isCharacter(objective)){
+                @if(isCharacter(objective)|| isZombie(objective)){
                     <img src="./../../assets/images/objective/{{objective.name}}.png" class="imgSuper" [alt]="objective.name">
                 }@else{
                     <img src="./../../assets/images/objective/{{objective}}.png" class="imgSuper" [alt]="objective">

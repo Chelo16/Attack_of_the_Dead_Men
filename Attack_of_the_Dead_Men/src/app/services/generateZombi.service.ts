@@ -1,8 +1,9 @@
 
 import { Injectable } from "@angular/core";
-import { ZombiesCard } from "../models/zombiesCard.model";
+
 import { Observable, Subject, catchError } from "rxjs";
 import { HttpClient } from "@angular/common/http";
+import { Zombie } from "../models/zombie.model";
 
 @Injectable({
     providedIn: 'root'
@@ -10,30 +11,27 @@ import { HttpClient } from "@angular/common/http";
 export class GenerateZombie {
 
     private apiUrl = 'http://attackofdeadmen.es/backend/generateZombi.php';    
-    zombiesCard: ZombiesCard[];
-    zombieCardSubject: Subject<ZombiesCard[]> = new Subject<ZombiesCard[]>();
+    zombie: Zombie;
+    zombieSubject: Subject<Zombie> = new Subject<Zombie>();
     constructor(private http: HttpClient) { }
 
-    getZombiesDeck(): void {
-        this.http.get<ZombiesCard>(`${this.apiUrl}`)
+    getZombie(name: string): void {
+        this.http.get<Zombie>(`${this.apiUrl}?name=${name}`)
         .pipe(
           catchError(error => {
             console.error('Error fetching Character:', error);
             return [];
           })
         ).subscribe((res)=>{
-            res.forEach(element=>{
-                let zombieCard: ZombiesCard = new ZombiesCard(res.ID,res.NAME,res.BLUE,res.YELLOW,res.ORANGE,res.RED);
-                this.zombiesCard.push(zombieCard)
-            })
-            this.emitZombiesCards();
+            this.zombie= new Zombie(res.TIPO,res.VIDA,res.ACTIONS,res.EXPERIENCE);
+            this.emitZombies();
         });
       }
-      private emitZombiesCards(): void{
-        this.zombieCardSubject.next(this.zombiesCard);
+      private emitZombies(): void{
+        this.zombieSubject.next(this.zombie);
       }
     
-      getZombieCardObservable(): Observable<ZombiesCard[]>{
-        return this.zombieCardSubject.asObservable()
+      getZombieObservable(): Observable<Zombie>{
+        return this.zombieSubject.asObservable()
       }
 }
