@@ -3,11 +3,11 @@
         <h3>Actual Turn: {{actualTurn.name}}</h3>
         <h4>Actions left: {{actions}}</h4>
     </div>
-    <div class="position-absolute backpack">
+    <div class="position-absolute backpack col-3">
         <div class="row">
             @for (item of actualTurn.backpack; track $index) {
-                <div class="col-4"><img [src]="'./../../assets/images/equipment/' + item.name + '.png'" [alt]="item.name" width="200px"
-                    height="300px"></div>
+                <div class="col-4"><img [src]="'./../../assets/images/equipment/' + item.name + '.png'" [alt]="item.name" width="60px"
+                    height="120px"></div>
             }
         </div>
     </div>
@@ -25,6 +25,14 @@
             }
         </div>
         }
+        <div class="position-absolute weapons col-3">
+            <div class="row">
+                <div class="col-4"><img [src]="'./../../assets/images/equipment/' + actualTurn.leftHand.name" [alt]="actualTurn.leftHand.name" width="60px"
+                    height="120px"></div>
+                <div class="col-4"><img [src]="'./../../assets/images/equipment/' + actualTurn.rigthHand.name" [alt]="actualTurn.rigthHand.name" width="60px"
+                    height="120px"></div>
+            </div>
+        </div>
         <div class="position-absolute controls">
             <div>
                 <a class="btn btn-primary" (click)="movePlayer(actualTurn,-1,0)">Moverse Arriba</a>
