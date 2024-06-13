@@ -22,6 +22,7 @@ import { GenerateZombie } from '../services/generateZombi.service';
 import { GenerateZombieDeck } from '../services/generateZombiDeck.service';
 import { GenerateEquipmentDeck } from '../services/generateEquipmentDeck.service';
 import { CharacterChange } from '../services/actualizarCharacters.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-board',
@@ -212,8 +213,6 @@ export class BoardComponent implements OnInit {
     if (this.doActions.actions(this.characters[this.turn])) {
       this.turn++;
       this.buscar = true;
-      console.log(this.board);
-      console.log(this.adventure.casillas)
       if (this.turn >= this.characters.length) {
         this.turn = 0
         this.turnZombies()
@@ -308,10 +307,22 @@ export class BoardComponent implements OnInit {
         this.moveCharacter.movePlayer(player, newRow, newCol);
         this.currentTurn()
       } else {
-        console.error('Invalid move');
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Movimiento invalido!",
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     } else {
-      console.error('Player position not found');
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Posicion no encontrada!",
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
 
   }
@@ -465,7 +476,12 @@ export class BoardComponent implements OnInit {
   }
   attackDoor(player: Character) {
     if (this.openDoor(player)) {
-      console.log('Puerta abierta')
+      Swal.fire({
+        icon: "success",
+        title: "Puerta abierta",
+        showConfirmButton: false,
+        timer: 1500
+      });
     }
   }
   openDoor(player: Character): boolean {
